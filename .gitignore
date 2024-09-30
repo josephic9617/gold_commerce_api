@@ -1,0 +1,12 @@
+# Environment files
+.venv
+env/
+venv/
+ENV/
+ENV.bak/
+venv.bak/
+
+# # other files
+TodoList.txt
+todoList.txt
+todo_list.txt
