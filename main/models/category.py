@@ -7,6 +7,7 @@ class Category(models.Model):
     is_root_parent = models.BooleanField(default=False)
     parent_category = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
     icon_name = models.CharField(max_length=255, null=True, blank=True)
+    
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

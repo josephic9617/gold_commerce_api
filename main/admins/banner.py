@@ -1,23 +1,19 @@
 from django.contrib import admin
-from main.models.category import Category
+from main.models.banner import Banner
 
-class CategoryAdmin(admin.ModelAdmin):
+
+class BannerAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'name',
         'description',
-        'is_root_parent',
-        'parent_category',
-        'icon_name',
+        'get_image',
         'created_at',
         'updated_at',
     )
     list_filter = (
         'name',
         'description',
-        'is_root_parent',
-        'parent_category',
-        'icon_name',
         'created_at',
         'updated_at',
     )
@@ -25,8 +21,7 @@ class CategoryAdmin(admin.ModelAdmin):
         'id',
         'name',
         'description',
-        'is_root_parent',
-        'icon_name',
+        'get_image',
         'created_at',
         'updated_at',
     )
