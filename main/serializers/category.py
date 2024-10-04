@@ -19,5 +19,5 @@ class CategorySerializer(serializers.ModelSerializer):
 
     def get_subcategories(self, instance):
         subcategories = instance.category_set.all()
-        serializer = CategorySerializer(subcategories, many=True)
+        serializer = CategorySerializer(subcategories, many=True, read_only=True)
         return serializer.data

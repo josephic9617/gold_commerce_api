@@ -1,20 +1,24 @@
 from rest_framework import serializers
-from main.models.product import Product, ProductImage
+from main.models.product import Product, ProductImage, ProductVideo
 
 
 class ProductImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductImage
         fields = (
-            'category',
             'get_image',
         )
 
-class ProductSerializer(serializers.ModelSerializer):
-    images = ProductImageSerializer(many=True, read_only=True)
+class ProductVideoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProductVideo
+        fields = (
+            'get_video',
+        )
 
-    def get_images(self, instance):
-        images = instance.productimage_set.all()
+class ProductSerializer(serializers.ModelSerializer):
+    images = ProductImageSerializer(many=True, read_only=True, source='productimage_set')
+    videos = ProductVideoSerializer(many=True, read_only=True, source='productvideo_set')
 
     class Meta:
         model = Product
@@ -26,6 +30,7 @@ class ProductSerializer(serializers.ModelSerializer):
             'weight',
             'category',
             'images',
+            'videos',
             'created_at',
             'updated_at',
         )

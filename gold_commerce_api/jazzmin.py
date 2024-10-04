@@ -5,13 +5,13 @@ JAZZMIN_SETTINGS = {
 
     'site_brand': 'Gold-commerce',
 
-    # 'site_logo': '',
+    'site_logo': 'img/e-commerce-white.png',
 
-    # 'login_logo': '',
+    'login_logo': 'img/e-commerce-black.png',
 
     'site_logo_classes': 'img-circle',
 
-    # 'site_icon': '',
+    'site_icon': 'img/e-commerce-white.png',
 
     'welcome_sign': 'Gold-commerce',
 
@@ -55,9 +55,11 @@ JAZZMIN_SETTINGS = {
         'auth': 'fas fa-users-cog',
         'auth.User': 'fas fa-user',
         'auth.Group': 'fas fa-users',
-        # 'main.Category': 'fas fa-solid fa-list',
-        # 'main.Clothing': 'fas fa-solid fa-vest',
-        # 'main.ClothingImage': 'fas fa-solid fa-image',
+        'main.Category': 'fas fa-solid fa-list',
+        'main.Product': 'fas fa-solid fa-cart-plus',
+        'main.ProductImage': 'fas fa-solid fa-images',
+        'main.ProductVideo': 'fas fa-solid fa-video',
+        'main.Banner': 'fas fa-solid fa-image',
     },
 
     'default_icon_parents': 'fas fa-chevron-circle-right',

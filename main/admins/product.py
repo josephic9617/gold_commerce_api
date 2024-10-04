@@ -43,6 +43,24 @@ class ProductImageAdmin(admin.ModelAdmin):
     )
     search_fields = (
         'id',
+        'product',
         'get_image',
         'image',
+    )
+
+class ProductVideoAdmin(admin.ModelAdmin):
+    list_display = (
+        'id',
+        'product',
+        'get_video',
+        'video',
+    )
+    list_filter = (
+        'product',
+    )
+    search_fields = (
+        'id',
+        'product',
+        'get_video',
+        'video',
     )

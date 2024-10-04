@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 
 class Banner(models.Model):
@@ -17,3 +18,8 @@ class Banner(models.Model):
             return settings.API_URL + self.image.url
         else:
             return ''
+    
+    class Meta:
+        verbose_name = 'Banner'
+        verbose_name_plural = 'Banners'
+        ordering = ('-created_at',)

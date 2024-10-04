@@ -16,9 +16,17 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = 'Product'
+        verbose_name_plural = 'Products'
+        ordering = ('-created_at',)
+
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='product_images')
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.product.name
@@ -28,3 +36,29 @@ class ProductImage(models.Model):
             return settings.API_URL + self.image.url
         else:
             return ''
+
+    class Meta:
+        verbose_name = 'Product Image'
+        verbose_name_plural = 'Product Images'
+        ordering = ('-created_at',)
+
+class ProductVideo(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    video = models.FileField(upload_to='product_videos')
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.product.name
+
+    def get_video(self):
+        if self.video:
+            return settings.API_URL + self.video.url
+        else:
+            return ''
+
+    class Meta:
+        verbose_name = 'Product Video'
+        verbose_name_plural = 'Product Videos'
+        ordering = ('-created_at',)
